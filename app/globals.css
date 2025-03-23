@@ -1,26 +1,47 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+  --font-pretendard: Pretendard;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+  font-family: var(--font-pretendard), 'Pretendard', sans-serif;
+}
+
+@layer components {
+  /* 기본 스타일 */
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* 버튼 스타일 */
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90;
+  }
+
+  /* 헤더 스타일 */
+  .header {
+    @apply fixed top-0 left-0 right-0 z-50 bg-black text-white;
+  }
+
+  /* 네비게이션 링크 스타일 */
+  .nav-link {
+    @apply text-white hover:text-primary transition-colors;
+  }
+
+  /* 카드 스타일 */
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden;
+  }
 }
